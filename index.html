@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="stylesheet/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Problem Statement</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="#one">Covid-19 In Singapore</a>
+
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link active" href="#one">Cases</a></li>
+                <li class="nav-item"><a class="nav-link" href="#two">Vaccination Progress</a></li>
+                <li class="nav-item"><a class="nav-link" href="#three">Vaccination Centres</a></li>
+            </ul>
+
+        </div>
+    </nav>
+    <div id="fullpage">
+        <div class="section" id="one">
+            <div class="row">
+                <h4>Cases</h4>
+                <div class="col">
+
+                    <div class="wrapper"><canvas width="30" height="30" id="casesChart"></canvas></div>
+
+
+                </div>
+                <div class="col">
+                    <div class="wrapper"><canvas id="place"></canvas></div>
+                </div>
+                <div class="col">
+                    <div class="wrapper"><canvas width="30" height="30" id="dailyCases"></canvas></div>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="two">
+            <h4>Vaccination Progress</h4>
+            <div class="row">
+                <div class="col">
+                    <div id="dottooltip">
+                        <div class="col">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                        <div class="col">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot-empty"></span>
+                            <span class="dot-empty"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="wrapper"><canvas id="doses"></canvas></div>
+                </div>
+                <div class="col">
+                    <p>With new Covid-19 variants such as Omicron surfacing, full vaccination will have to include
+                        booster shots as well.</p>
+                    <div class="col">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <div class="col">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot-empty"></span>
+                    </div>
+                    <p id="myTemplate">9 out of 10 Singaporeans are vaccinated</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="section" id="three">
+            <div class="wrapper-map">
+            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px" y="0px" viewBox="0 0 512 322.1" style="enable-background:new 0 0 512 322.1;"
+                xml:space="preserve">
+                <style type="text/css">
+                    .st0 {
+                        fill: #333333;
+                    }
+
+                    .st1 {
+                        fill: #328E57;
+                    }
+
+                    .st2 {
+                        fill: #FFE000;
+                    }
+
+                    .st3 {
+                        fill: #FF78FC;
+                    }
+                </style>
+                <path class="st0" d="M345.7,130.8c0.1-0.1,0.3-0.3,0.4-0.5c0.1-0.1,0.2-0.2,0.3-0.3c0.2-0.2,0.3-0.4,0.5-0.6
+	c0.1-0.1,0.1-0.1,0.2-0.2c0.2-0.2,0.4-0.5,0.6-0.8c0.1-0.1,0.1-0.2,0.2-0.3c0.1-0.2,0.2-0.3,0.4-0.5c0.1-0.1,0.2-0.2,0.2-0.4
+	c0.1-0.1,0.2-0.3,0.3-0.5c0.1-0.1,0.2-0.2,0.2-0.4c0.1-0.2,0.2-0.3,0.3-0.5c0.1-0.1,0.1-0.2,0.2-0.4c0.1-0.2,0.2-0.4,0.3-0.5
+	c0.1-0.1,0.1-0.2,0.2-0.4c0.1-0.3,0.3-0.6,0.4-0.9c0.1-0.1,0.1-0.2,0.2-0.4c0.1-0.2,0.2-0.4,0.2-0.6c0.1-0.1,0.1-0.3,0.2-0.5
+	c0.1-0.2,0.1-0.4,0.2-0.5c0.1-0.2,0.1-0.3,0.2-0.5c0.1-0.2,0.1-0.4,0.2-0.5c0-0.2,0.1-0.3,0.1-0.5c0-0.2,0.1-0.4,0.1-0.5
+	c0-0.2,0.1-0.3,0.1-0.5c0-0.2,0.1-0.4,0.1-0.6c0-0.2,0.1-0.4,0.1-0.6c0-0.2,0.1-0.5,0.1-0.7c0,0,0-0.1,0-0.1c0-0.1,0-0.2,0-0.3
+	c0-0.4,0.1-0.7,0.1-1c0-0.1,0-0.1,0-0.2c0-0.4,0.1-0.7,0.1-1c0,0,0-0.1,0-0.1c0-0.4,0-0.8,0.1-1.2c0-0.1,0-0.1,0-0.2
+	c0-0.4,0-0.8,0-1.2c-0.1-5.2-3.6-10.4-8.9-10.2l0,0l0,0c-2.7,0.1-5.2,1.4-7.9,1.8c-2.3,0.4-5.3,1-8.4,1.1c-4,0.2-8,0-10.7-1.9
+	c-5.1-3.6-2.6-12.3-7.7-15.8c-1.2-0.9-2.6-1-4-1c-2,0.1-4.1,0.8-6,0.9c-0.4,0-0.7,0-1,0c-3.9-0.2-7.3-3.2-10.2-5.7
+	c-5-4.4-4.6-12-10.3-16.2c-0.2-0.1-0.4-0.2-0.5-0.4c-0.1,0-0.1-0.1-0.2-0.1c-0.1-0.1-0.3-0.2-0.4-0.2c-0.1-0.1-0.2-0.1-0.3-0.2
+	c0,0,0,0,0,0c0,0,0,0,0,0c-0.1-0.1-0.3-0.1-0.4-0.2c-0.1,0-0.1-0.1-0.2-0.1c-0.1,0-0.1-0.1-0.2-0.1c0,0,0,0-0.1,0
+	c-0.1-0.1-0.3-0.1-0.4-0.2c0,0-0.1,0-0.1-0.1c-0.1,0-0.1-0.1-0.2-0.1c0,0,0,0-0.1,0c-0.1-0.1-0.3-0.1-0.4-0.2c0,0,0,0,0,0
+	c-0.1,0-0.2-0.1-0.3-0.1c0,0-0.1,0-0.1,0c-0.1-0.1-0.3-0.1-0.4-0.2c-0.1,0-0.2-0.1-0.4-0.1c0,0-0.1,0-0.1,0c-0.1,0-0.2-0.1-0.4-0.1
+	c-0.1,0-0.2-0.1-0.4-0.1c0,0-0.1,0-0.1,0c-0.1,0-0.2-0.1-0.4-0.1c-0.1,0-0.2-0.1-0.4-0.1c0,0-0.1,0-0.1,0c-0.1,0-0.2-0.1-0.4-0.1
+	c-0.1,0-0.2-0.1-0.4-0.1c0,0-0.1,0-0.1,0c-0.1,0-0.2-0.1-0.4-0.1c-0.1,0-0.2-0.1-0.4-0.1c0,0-0.1,0-0.1,0c-0.1,0-0.2,0-0.4-0.1
+	c-0.1,0-0.2,0-0.4-0.1c0,0-0.1,0-0.1,0c-0.1,0-0.2,0-0.4,0c-0.1,0-0.2,0-0.4,0c-0.1,0-0.1,0-0.2,0c-0.1,0-0.2,0-0.4,0s-0.2,0-0.4,0
+	c-0.1,0-0.1,0-0.2,0c-0.1,0-0.2,0-0.4,0c-0.1,0-0.2,0-0.3,0c-0.1,0-0.1,0-0.2,0c-0.1,0-0.2,0-0.4,0c-0.1,0-0.2,0-0.3,0
+	c-0.1,0-0.1,0-0.2,0c-0.1,0-0.2,0-0.4,0c0,0-0.1,0-0.1,0c0,0-0.1,0-0.1,0c-0.1,0-0.2,0-0.3,0c-0.1,0-0.2,0-0.4,0c-0.1,0-0.1,0-0.2,0
+	c0,0-0.1,0-0.1,0c-0.1,0-0.1,0-0.2,0c-0.1,0-0.3,0-0.5,0c-0.1,0-0.1,0-0.2,0c0,0-0.1,0-0.1,0c-0.1,0-0.1,0-0.2,0c-0.1,0-0.2,0-0.3,0
+	c-0.2,0-0.4,0-0.5,0.1l0,0c0,0,0,0,0,0c0,0-0.1,0-0.1,0c-0.1,0-0.1,0-0.2,0h0c-0.1,0-0.2,0-0.4,0.1c-0.1,0-0.1,0-0.2,0h0
+	c0,0,0,0-0.1,0s-0.1,0-0.1,0s-0.1,0-0.1,0c-0.2,0-0.4,0.1-0.5,0.1c0,0-0.1,0-0.1,0h0c-0.1,0-0.1,0-0.2,0.1c-0.1,0-0.2,0.1-0.3,0.1
+	c0,0-0.1,0-0.1,0h0c0,0,0,0,0,0c-0.2,0-0.4,0.1-0.5,0.2c0,0,0,0,0,0c-0.1,0-0.1,0-0.2,0.1c0,0-0.1,0-0.1,0c-0.1,0-0.1,0-0.2,0.1
+	c0,0-0.1,0-0.1,0c-0.1,0-0.1,0-0.2,0.1c0,0,0,0-0.1,0c-0.1,0-0.2,0.1-0.3,0.1c-0.1,0-0.2,0.1-0.4,0.1c0,0-0.1,0-0.1,0
+	c-0.1,0-0.2,0.1-0.2,0.1c0,0,0,0-0.1,0l0,0c0,0-0.1,0-0.1,0c-0.1,0-0.2,0.1-0.3,0.1c-0.1,0-0.2,0.1-0.4,0.1h0c0,0-0.1,0-0.1,0.1
+	c-0.1,0.1-0.2,0.1-0.4,0.2c-0.1,0-0.2,0.1-0.3,0.2c0,0-0.1,0.1-0.1,0.1c-0.1,0.1-0.2,0.1-0.4,0.2h0c-0.1,0-0.1,0.1-0.2,0.1
+	c0,0-0.1,0.1-0.1,0.1l0,0l0,0c-0.1,0.1-0.3,0.2-0.5,0.3c-0.1,0.1-0.2,0.1-0.3,0.2c-0.2,0.1-0.4,0.2-0.5,0.4c0,0,0,0-0.1,0
+	c-0.1,0-0.1,0.1-0.2,0.1c-0.1,0.1-0.3,0.2-0.4,0.3c-0.1,0-0.1,0.1-0.2,0.1c-0.1,0.1-0.2,0.1-0.2,0.2c-0.1,0-0.1,0.1-0.2,0.1
+	c-0.1,0.1-0.2,0.2-0.4,0.3l0,0l0,0l0,0l0,0c-0.1,0.1-0.2,0.1-0.3,0.2c-3.4,2.9-6,6.9-9.6,9.5c-1.9,1.4-4.2,2.2-6.4,2.3
+	c-0.1,0-0.2,0-0.3,0c-0.1,0-0.3,0-0.4,0c-0.1,0-0.2,0-0.3,0c-0.1,0-0.3,0-0.4,0c-0.1,0-0.2,0-0.3,0c-0.1,0-0.3,0-0.5-0.1
+	c-0.1,0-0.2,0-0.2-0.1c-0.1,0-0.3-0.1-0.5-0.1c-0.1,0-0.2,0-0.2-0.1c-0.1,0-0.3-0.1-0.5-0.2c-0.1,0-0.1-0.1-0.2-0.1
+	c-0.2-0.1-0.3-0.1-0.5-0.2c-0.1,0-0.1-0.1-0.2-0.1c-0.2-0.1-0.4-0.2-0.7-0.4c-3.4-2.3-5.3-5.1-9.6-6c-0.1,0-0.2,0-0.4-0.1
+	c-0.2,0-0.5-0.1-0.7-0.1c-0.6,0-1.2,0-1.9,0.2c-0.2,0.1-0.5,0.1-0.7,0.2c-0.1,0-0.1,0-0.2,0.1c-0.2,0.1-0.5,0.1-0.7,0.2
+	c-0.1,0-0.1,0-0.2,0.1c-0.2,0.1-0.4,0.1-0.6,0.2c-0.1,0-0.1,0.1-0.2,0.1c-0.2,0.1-0.5,0.2-0.7,0.3c-0.1,0-0.1,0.1-0.2,0.1
+	c-0.2,0.1-0.4,0.2-0.6,0.3c0,0-0.1,0-0.1,0.1c-0.2,0.1-0.5,0.3-0.7,0.4c0,0-0.1,0.1-0.1,0.1c-0.5,0.3-0.9,0.6-1.4,1
+	c0,0-0.1,0-0.1,0.1c-0.2,0.2-0.4,0.4-0.7,0.5l0,0c-0.2,0.2-0.4,0.4-0.6,0.5c0,0-0.1,0.1-0.1,0.1c0,0-0.1,0-0.1,0.1l0,0
+	c-4.9,4.8-8.7,12-11.7,17.4c-4.7,8.5-9.3,17.1-13.6,25.8v0c-4.4,9.1-8.5,18.3-11.7,27.9c-0.4,1.1-0.7,2.3-0.3,3.3
+	c0.4,0.9,1.2,1.4,2,1.8c2.7,1.5,5.6,2.3,8.6,2.6c1.8,0.1,3.3-1.6,2.9-3.6c-0.1-0.8-0.1-1.6,0.1-2.4c0.6-2.1,2.8-3.6,4.8-3.3
+	c2.8,0.3,4.8,3.3,7.6,3.5c1.9,0.2,3.7-0.9,5.4-1.8c7.5-3.8,16.2-3.2,24.5-2.6c3.6,0.3,7.1,0.6,10.4,2c3.2,1.4,6,3.7,8.7,6.1
+	c5.6,4.8,11.2,9.6,16.2,15.1c1.2,1.3,2.5,2.7,3.8,4c1.9,2,3.2,3,5.4,4.2c0,0,0,0,0,0c0.7,0.4,1.5,0.5,2.2,0.4
+	c0.5-0.1,1.1-0.3,1.5-0.6c0,0,0.1,0,0.1-0.1c0,0,0.1,0,0.1-0.1c0.3-0.2,0.6-0.6,0.9-0.9c0.4-0.5,0.6-1.1,0.7-1.8
+	c0.3-2.1,1.4-4.1,2.9-5.6c1.4-1.4,3-2.7,4.7-3.9c4.5-3.2,9.8-5.7,14.2-8.6c1.4-0.9,2.7-1.7,4.1-2.5c9.3-5.3,19.5-8.3,29.5-12.1
+	c0.1,0,0.2-0.1,0.4-0.1c0.2-0.1,0.4-0.1,0.6-0.2c0.1-0.1,0.3-0.1,0.5-0.2c0.2-0.1,0.4-0.1,0.5-0.2c0.1-0.1,0.3-0.1,0.5-0.2
+	c0.2-0.1,0.4-0.1,0.5-0.2c0.1-0.1,0.3-0.1,0.4-0.2c0.2-0.1,0.4-0.2,0.5-0.3c0.1-0.1,0.2-0.1,0.4-0.2c0.2-0.1,0.4-0.2,0.6-0.3
+	c0.1,0,0.2-0.1,0.3-0.1c0.3-0.2,0.6-0.3,0.9-0.5c0.1-0.1,0.2-0.1,0.3-0.2c0.2-0.1,0.4-0.2,0.6-0.4c0.1-0.1,0.2-0.1,0.4-0.2
+	c0.2-0.1,0.4-0.2,0.5-0.4c0.1-0.1,0.2-0.1,0.4-0.2c0.2-0.1,0.4-0.2,0.5-0.4c0.1-0.1,0.2-0.1,0.3-0.2c0.2-0.1,0.4-0.3,0.6-0.4
+	c0.1-0.1,0.2-0.1,0.3-0.2c0.3-0.2,0.5-0.4,0.8-0.6c0,0,0.1-0.1,0.1-0.1c0.2-0.2,0.4-0.4,0.6-0.5c0.1-0.1,0.2-0.2,0.3-0.2
+	c0.1-0.1,0.3-0.3,0.5-0.4c0.1-0.1,0.2-0.2,0.3-0.3c0.1-0.1,0.3-0.3,0.4-0.4C345.5,131,345.6,130.9,345.7,130.8z" />
+                <g data-tippy-interactive="true" id="c1">
+                    <circle class="st1" cx="312.9" cy="131.1" r="2.5" />
+                </g>
+                <circle class="st2" data-tippy-interactive="true" id="c2" cx="234.1" cy="125" r="2.5" />
+                <circle class="st1" id="c3" cx="268.2" cy="151.7" r="2.5" />
+                <circle class="st2" id="c4" cx="243.5" cy="98.5" r="2.5" />
+                <circle class="st1" id="c5" cx="247" cy="140.6" r="2.5" />
+                <circle class="st1" id="c6" cx="290.8" cy="134.8" r="2.5" />
+                <circle class="st1" id="c7" cx="299.7" cy="112.9" r="2.5" />
+                <circle class="st1" id="c8" cx="221.1" cy="123.3" r="2.5" />
+                <circle class="st1" id="c9" cx="312.9" cy="142.2" r="2.5" />
+                <circle class="st3" id="c10" cx="278.7" cy="154.8" r="2.5" />
+                <circle class="st3" id="c11" cx="330.4" cy="112.7" r="2.5" />
+                <circle class="st2" id="c12" cx="210.1" cy="127.9" r="2.5" />
+            </svg>
+        </div>
+            <table id="table" class="display" width="100%"></table>
+        </div>
+    </div>
+    <script src="https://unpkg.com/fullpage.js/dist/fullpage.min.js"></script>
+    <script type="text/javascript">
+        var myFullPage = new fullpage('#fullpage', {
+            sectionsColor: ['#fff'],
+            navigation: true,
+
+        });
+
+
+    </script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script>
+
+        tippy('#dottooltip', {
+            placement: 'top', //place tippy to the right
+
+            content: 'For every 100 people in Singapore, 88 have received their first dose and 87 are fully vaccinated as at 14 Dec',
+            allowHTML: true, //allow HTML in tippy content
+            delay: 500, //delay tippy showing and hiding (in milliseconds)
+            interactive: true,
+        });
+        tippy('#c1', {
+            placement: 'top', //place tippy to the right
+            content: 'Bedok Polyclinic<br/>	11 Bedok North Street 1<br/> Heartbeat@Bedok<br/> #02-01, #03-01,<br/> Singapore 469662<br/>	6343 1121',
+            allowHTML: true, //allow HTML in tippy content
+            delay: 500, //delay tippy showing and hiding (in milliseconds)
+            interactive: true,
+        });
+        tippy('#c2', {
+            placement: 'top', //place tippy to the right
+            content: 'Bukit Batok Polyclinic<br/> 50 Bukit Batok West Avenue 3<br/>Singapore 659164<br/>6343 1122<br/>',
+            allowHTML: true, //allow HTML in tippy content
+            delay: 500, //delay tippy showing and hiding (in milliseconds)
+            interactive: true,
+        });
+        tippy('#c3', {
+            placement: 'top', //place tippy to the right
+            content: 'Bukit Merah Polyclinic<br/>162 Bukit Merah Central Level 4<br/>Singapore 150163<br/>6343 1123<br/>',
+            allowHTML: true, //allow HTML in tippy content
+            delay: 500, //delay tippy showing and hiding (in milliseconds)
+            interactive: true,
+        });
+        tippy('#c4', {
+            placement: 'top', //place tippy to the right
+            content: 'Choa Chu Kang Polyclinic<br/>2 Teck Whye Crescent<br/>Singapore 688846<br/>6343 1124',
+            allowHTML: true, //allow HTML in tippy content
+            delay: 500, //delay tippy showing and hiding (in milliseconds)
+            interactive: true,
+        });
+        tippy('#c5', {
+            placement: 'top', //place tippy to the right
+            content: 'Clementi Polyclinic<br/>451 Clementi Avenue 3<br/>Singapore 120451<br/>6343 1125',
+            allowHTML: true, //allow HTML in tippy content
+            delay: 500, //delay tippy showing and hiding (in milliseconds)
+            interactive: true,
+        });
+        tippy('#c6', {
+            placement: 'top', //place tippy to the right
+            content: 'Geylang Polyclinic<br/>21 Geylang East Central<br/>Singapore 389707<br/>6343 1126',
+            allowHTML: true, //allow HTML in tippy content
+            delay: 500, //delay tippy showing and hiding (in milliseconds)
+            interactive: true,
+        });
+        tippy('#c7', {
+            placement: 'top', //place tippy to the right
+            content: 'Hougang Polyclinic<br/>89 Hougang Avenue 4<br/>Singapore 538829<br/>6765 1121',
+            allowHTML: true, //allow HTML in tippy content
+            delay: 500, //delay tippy showing and hiding (in milliseconds)
+            interactive: true,
+        });
+        tippy('#c8', {
+            placement: 'top', //place tippy to the right
+            content: 'Jurong Polyclinic<br/>190 Jurong East Avenue 1<br/>Singapore 609788<br/>6765 1122',
+            allowHTML: true, //allow HTML in tippy content
+            delay: 500, //delay tippy showing and hiding (in milliseconds)
+            interactive: true,
+        });
+        tippy('#c9', {
+            placement: 'top', //place tippy to the right
+            content: 'Marine Parade Polyclinic<br/>80 Marine Parade Central<br/>Singapore 440080<br/>6765 1123',
+            allowHTML: true, //allow HTML in tippy content
+            delay: 500, //delay tippy showing and hiding (in milliseconds)
+            interactive: true,
+        });
+        tippy('#c10', {
+            placement: 'top', //place tippy to the right
+            content: 'Outram Polyclinic<br/>3 Second Hospital Avenue, #02-00 Health Promotion Board Building, Singapore 168937<br/>6765 1124',
+            allowHTML: true, //allow HTML in tippy content
+            delay: 500, //delay tippy showing and hiding (in milliseconds)
+            interactive: true,
+        });
+        tippy('#c11', {
+            placement: 'top', //place tippy to the right
+            content: 'Pasir Ris Polyclinic<br/>1 Pasir Ris Drive 4, Singapore 519457<br/>6765 1125',
+            allowHTML: true, //allow HTML in tippy content
+            delay: 500, //delay tippy showing and hiding (in milliseconds)
+            interactive: true,
+        });
+        tippy('#c12', {
+            placement: 'top', //place tippy to the right
+            content: 'Pioneer Polyclinic<br/>26 Jurong West Street 61, Singapore 648201<br/>6765 1126',
+            allowHTML: true, //allow HTML in tippy content
+            delay: 500, //delay tippy showing and hiding (in milliseconds)
+            interactive: true,
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const labels = [
+            'Total Cases',
+            'Currently in Hospital',
+            'Total Deaths',
+        ];
+        // Set labels, colours and data
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: labels,
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 86)'
+                ],
+                hoverOffset: 4,
+                data: [257510, 1365, 678],
+            }]
+
+        };
+        const config = {
+            type: 'pie',
+            data: data,
+        };
+        const myChart = new Chart(
+            document.getElementById('casesChart'),
+            config
+        );
+        const dlabels = [
+            'Community',
+            'Dormitories',
+            'Imported',
+        ];
+        // Set labels, colours and data
+        const ddata = {
+            labels: dlabels,
+            datasets: [{
+                label: dlabels,
+                backgroundColor: [
+                    'rgb(125, 91, 32)',
+                    'rgb(114, 16, 25)',
+                    'rgb(55, 25, 86)'
+                ],
+                hoverOffset: 2,
+                data: [2030, 40, 9],
+            }]
+
+        };
+        const dconfig = {
+            type: 'pie',
+            data: ddata,
+        };
+        const dmyChart = new Chart(
+            document.getElementById('place'),
+            dconfig
+        );
+        const blabels = [
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+            '6',
+            '7',
+            '8',
+            '9',
+            '10',
+            '11',
+            '12',
+            '13',
+            '14'
+        ];
+        // Set labels, colours and data
+        const bdata = {
+            labels: blabels,
+            datasets: [{
+                label: 'Dec 2021 Daily Cases',
+                backgroundColor: 'rgb(25, 9, 202)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [1134, 1056, 986, 771, 756, 721, 654, 742, 689, 512, 455, 376, 244, 103],
+            }]
+        };
+        // Configure chart
+        const bconfig = {
+            type: 'bar',
+            data: bdata
+        };
+        // Render chart in <canvas>
+        const bmyChart = new Chart(
+            document.getElementById('dailyCases'),
+            bconfig
+        );
+
+        const clabels = [
+            'People with full regime or 2 doses',
+            'Others',
+        ];
+        // Set labels, colours and data
+        const cdata = {
+            labels: clabels,
+            datasets: [{
+                label: clabels,
+                backgroundColor: [
+                    'rgb(15, 205, 86)',
+                    'rgb(1, 200, 252)'
+
+                ],
+                hoverOffset: 2,
+                data: [96, 4],
+            }]
+
+        };
+        const cconfig = {
+            type: 'doughnut',
+            data: cdata,
+        };
+        const cmyChart = new Chart(
+            document.getElementById('doses'),
+            cconfig
+        );
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+
+    <script>
+        //Add the data source for the DataTable here
+        var dataSet = [
+            ["Bedok Polyclinic", "11 Bedok North Street 1 Heartbeat@Bedok #02-01, #03-01, Singapore 469662", "Pfizer", "6343 1121"],
+            ["Bukit Batok Polyclinic", "50 Bukit Batok West Avenue 3, Singapore 659164", "Moderna", "6343 1122"],
+            ["Bukit Merah Polyclinic", "162 Bukit Merah Central Level 4, Singapore 150163", "Pfizer", "6343 1123"],
+            ["Choa Chu Kang Polyclinic", "2 Teck Whye Crescent, Singapore 688846", "Moderna", "6343 1124"],
+            ["Clementi Polyclinic", "451 Clementi Avenue 3, Singapore 120451", "Pfizer", "6343 1125"],
+            ["Geylang Polyclinic", "21 Geylang East Central, Singapore 389707", "Pfizer", "6343 1126"],
+            ["Hougang Polyclinic", "89 Hougang Avenue 4, Singapore 538829", "Pfizer", "6765 1121"],
+            ["Jurong Polyclinic", "190 Jurong East Avenue 1, Singapore 609788", "Pfizer", "6765 1122"],
+            ["Marine Parade Polyclinic", "80 Marine Parade Central, Singapore 440080", "Pfizer", "6765 1123"],
+            ["Outram Polyclinic", "3 Second Hospital Avenue, #02-00 Health Promotion Board Building, Singapore 168937", "Comirnaty", "6765 1124"],
+            ["Pasir Ris Polyclinic", "1 Pasir Ris Drive 4, Singapore 519457", "Comirnaty", "6765 1125"],
+            ["Pioneer Polyclinic", "26 Jurong West Street 61, Singapore 648201", "Moderna", "6765 1126"],
+
+        ];
+        $(document).ready(function () {
+            $('#table').DataTable({
+                data: dataSet,
+                columns: [
+                    { title: "Name" },
+                    { title: "Address" },
+                    { title: "Vaccine Type" },
+                    { title: "Phone" },
+                ]
+            });
+        });
+    </script>
+</body>
+
+</html>
